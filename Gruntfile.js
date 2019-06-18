@@ -648,10 +648,19 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('jade_compile', ['jade', 'notify:jade_compile']);
+
+  /* ******** Default */
+  //grunt.registerTask('js_compile', ['concat:temp', 'configureBabel', 'babel:bin', 'notify:js_compile', 'clean:temp']);
+  //grunt.registerTask('sass_compile', ['sass:gh', 'sass:bin', 'postcss:gh', 'postcss:bin', 'notify:sass_compile']);
+
+  /* ******** Custom */
   grunt.registerTask('js_compile', ['concat:temp', 'configureBabel', 'babel:bin', 'notify:js_compile', 'clean:temp']);
   grunt.registerTask('sass_compile', ['sass:bin', 'notify:sass_compile']);
+
+
   grunt.registerTask('server', ['browserSync', 'notify:server']);
   grunt.registerTask('lint', ['removelogging:source']);
   grunt.registerTask('monitor', ["concurrent:monitor"]);
   grunt.registerTask('travis', ['js_compile', 'sass_compile', 'jasmine']);
+
 };
